@@ -15,11 +15,11 @@ body{
 	text-align: center;
 }
 
-.title {
-	text-align: center;
-	color: white;
-	text-shadow: 1px 1px black;
-}
+// .title {
+// 	text-align: center;
+// 	color: white;
+// 	text-shadow: 1px 1px black;
+// }
 
 input {
 	padding: .75rem 2rem .75rem 0;
@@ -27,7 +27,7 @@ input {
 	font-size: 1rem;
 }
 
-/*Buttons*/
+
 .todo-input-btn {
 	padding: 10px;
 	font-size: 16px;
@@ -49,10 +49,10 @@ ul {
 	font-size: 1.6rem;
 	width: 70%;
 	text-align: initial;
-	margin: auto auto auto 6.5rem;
+	margin: auto auto auto 5rem;
 	// margin-top: 4px;
 	border: 1px solid #515A6A;
-	background-color: #4E86CA;
+	background-color: rgba(78,134,202, .5);
 	float: left;
 	padding: 10px 5px;
   color: #fff;
