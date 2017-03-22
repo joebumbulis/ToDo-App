@@ -65,7 +65,14 @@ $('.todo-input-btn').on('click', function(e) {
         var todoItem = $('<li class="todo-item">' + items + '<button class="item-delete-btn" type="button">done</button></li>');
         var deleteBtn = todoItem.find('.item-delete-btn');
         $(deleteBtn).on('click', function(e){
-          console.log(e);
+          todoItem.remove();
+          console.log(item);
+          var deleteItem = {
+            type: 'DELETE',
+            url: url
+          }
+
+          $.ajax(deleteItem)
         })
         todoList.append(todoItem);
     })
