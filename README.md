@@ -3,10 +3,12 @@
 
 
 ## Learning Objectives:
-* using ajax to interface with a server
+* using json to interface with a REST api server
 * [My Tiny Za Server](http://tiny-za-server.herokuapp.com/collections/joebum)
-* GET, POST, DELETE to the server
+* Use ajax: GET, POST, DELETE to the server
 * Display data on the DOM
+* Use App Planning for the first time including wire-frame, data modeling, and app planning (see attached image below)
+
 
 ## Explorer Mode
 
