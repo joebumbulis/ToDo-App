@@ -15,7 +15,9 @@
 * Before you begin coding, write notes about WHAT happens, WHEN.
 * Before you begin coding, do some data modeling!
 
-(images/IMG_0173.JPG.jpeg "App work flow")
+#### App Work Flow, wire frames, and data modeling
+
+![alt text](images/IMG_0173.JPG.jpeg "App work flow")
 
 ### WHAT TO SUBMIT
 
