@@ -9,6 +9,10 @@
 * Display data on the DOM
 * Use App Planning for the first time including wire-frame, data modeling, and app planning (see attached image below)
 
+## Future Processes
+* Need to fix a few bugs:
+  * add the delete function to the returned ajax data so it deletes when the data has actually been deleted from the server.
+  * the elements added to the DOM are not being deleted from the server.
 
 ## Explorer Mode
 

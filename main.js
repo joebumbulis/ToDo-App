@@ -14,31 +14,23 @@ $.ajax(settings).then(function(data, status, xhr) {
     // console.log(items);
     data.forEach(function(item, i, arr) {
         // console.log(item);
-        var id = item._id
-        url = 'http://tiny-za-server.herokuapp.com/collections/joebum/' + id
+        // var id = item._id
+        var url = 'http://tiny-za-server.herokuapp.com/collections/joebum/' + item._id
         var todoList = $("#todo-list");
         var todoItem = $('<li class="todo-item">' + item.todo + '<button class="item-delete-btn" type="button">done</button></li>');
         var deleteBtn = todoItem.find('.item-delete-btn');
-        $(deleteBtn).on('click', function(e){
-          todoItem.remove();
-          console.log(item);
-          var deleteItem = {
-            type: 'DELETE',
-            url: url
-          }
-
-          $.ajax(deleteItem)
-          // .then(function(data, status, xhr){
-          //   data.remove(item);
-          // })
-          // var deleteItem = {
-          //   type: 'DELETE',
-          //   url: 'http://tiny-za-server.herokuapp.com/collections/joebum',
-          // }
+        deleteBtn.on('click', function(e) {
+            console.log(item._id, url);
+            var deleteItem = {
+                type: 'DELETE',
+                url: url
+            }
+            $.ajax(deleteItem).then(function() {
+                todoItem.remove();
+            })
         })
         todoList.append(todoItem);
     })
-
 })
 //when user clicks todo-input-btn, get data from input field & send data to server
 
@@ -58,21 +50,22 @@ $('.todo-input-btn').on('click', function(e) {
     }
     $.ajax(settings).then(function(data, status, xhr) {
         console.log(data)
-        var items = data.todo;
-        console.log(items);
+        var item = data.todo;
+        var url = 'http://tiny-za-server.herokuapp.com/collections/joebum/' + item._id
         var todoList = $("#todo-list");
         // var deleteBtn = $('<button class="item-delete-btn" type="button">done</button>');
-        var todoItem = $('<li class="todo-item">' + items + '<button class="item-delete-btn" type="button">done</button></li>');
+        var todoItem = $('<li class="todo-item">' + item + '<button class="item-delete-btn" type="button">done</button></li>');
         var deleteBtn = todoItem.find('.item-delete-btn');
-        $(deleteBtn).on('click', function(e){
-          todoItem.remove();
-          console.log(item);
-          var deleteItem = {
-            type: 'DELETE',
-            url: url
-          }
+        $(deleteBtn).on('click', function(e) {
+            var deleteItem = {
+                type: 'DELETE',
+                url: url
+            }
 
-          $.ajax(deleteItem)
+            $.ajax(deleteItem).then(function() {
+                todoItem.remove();
+
+            })
         })
         todoList.append(todoItem);
     })
