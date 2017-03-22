@@ -14,11 +14,23 @@ $.ajax(settings).then(function(data, status, xhr) {
     // console.log(items);
     data.forEach(function(item, i, arr) {
         // console.log(item);
+        var id = item._id
+        url = 'http://tiny-za-server.herokuapp.com/collections/joebum/' + id
         var todoList = $("#todo-list");
         var todoItem = $('<li class="todo-item">' + item.todo + '<button class="item-delete-btn" type="button">done</button></li>');
         var deleteBtn = todoItem.find('.item-delete-btn');
         $(deleteBtn).on('click', function(e){
-          console.log(e);
+          todoItem.remove();
+          console.log(item);
+          var deleteItem = {
+            type: 'DELETE',
+            url: url
+          }
+
+          $.ajax(deleteItem)
+          // .then(function(data, status, xhr){
+          //   data.remove(item);
+          // })
           // var deleteItem = {
           //   type: 'DELETE',
           //   url: 'http://tiny-za-server.herokuapp.com/collections/joebum',
