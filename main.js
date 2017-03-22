@@ -16,6 +16,17 @@ $.ajax(settings).then(function(data, status, xhr) {
         // console.log(item);
         var todoList = $("#todo-list");
         var todoItem = $('<li class="todo-item">' + item.todo + '<button class="item-delete-btn" type="button">done</button></li>');
+        // var deleteBtn = $('<button class="item-delete-btn" type="button">done</button>');
+        // var todoItem = $('<li class="todo-item">' + item.todo + deleteBtn +'</li>');
+        // $(deleteBtn).on('click', function(e){
+        //   console.log(e)
+        //   // var deleteItem = {
+        //   //   type: 'DELETE',
+        //   //   url: 'http://tiny-za-server.herokuapp.com/collections/joebum',
+        //   // }
+        //
+        // });
+
         todoList.append(todoItem);
     })
 
@@ -34,24 +45,30 @@ $('.todo-input-btn').on('click', function(e) {
         url: 'http://tiny-za-server.herokuapp.com/collections/joebum',
         data: JSON.stringify({
             todo: input,
-        // })
+        })
     }
     $.ajax(settings).then(function(data, status, xhr) {
         console.log(data)
         var items = data.todo;
         console.log(items);
         var todoList = $("#todo-list");
-        var todoItem = $('<li class="todo-item">' + items + '<button class="item-delete-btn" type="button">done</button></li>');
+        var deleteBtn = $('<button class="item-delete-btn" type="button">done</button>');
+        var todoItem = $('<li class="todo-item">' + items + deleteBtn +'</li>');
+        $(deleteBtn).on('click', function(e){
+          console.log(e)
+          // var deleteItem = {
+          //   type: 'DELETE',
+          //   url: 'http://tiny-za-server.herokuapp.com/collections/joebum',
+          // }
+
+        });
         todoList.append(todoItem);
     })
-})
-//make delete button event handler
-var deleteBtn = $('.item-delete-btn');
-console.log(deleteBtn);
+});
+// make delete button event handler
 
-deleteBtn.on('click', function(e) {
 //when user clicks delete button of a spec item
-console.log('hi');
+
 //send delete request to server
 //when data is sent back?
 //take the item out of page?
@@ -62,5 +79,3 @@ console.log('hi');
 // }
 
 // $.ajax(deletItem)
-
-});
