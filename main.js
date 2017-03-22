@@ -16,17 +16,14 @@ $.ajax(settings).then(function(data, status, xhr) {
         // console.log(item);
         var todoList = $("#todo-list");
         var todoItem = $('<li class="todo-item">' + item.todo + '<button class="item-delete-btn" type="button">done</button></li>');
-        // var deleteBtn = $('<button class="item-delete-btn" type="button">done</button>');
-        // var todoItem = $('<li class="todo-item">' + item.todo + deleteBtn +'</li>');
-        // $(deleteBtn).on('click', function(e){
-        //   console.log(e)
-        //   // var deleteItem = {
-        //   //   type: 'DELETE',
-        //   //   url: 'http://tiny-za-server.herokuapp.com/collections/joebum',
-        //   // }
-        //
-        // });
-
+        var deleteBtn = todoItem.find('.item-delete-btn');
+        $(deleteBtn).on('click', function(e){
+          console.log(e);
+          // var deleteItem = {
+          //   type: 'DELETE',
+          //   url: 'http://tiny-za-server.herokuapp.com/collections/joebum',
+          // }
+        })
         todoList.append(todoItem);
     })
 
@@ -52,16 +49,12 @@ $('.todo-input-btn').on('click', function(e) {
         var items = data.todo;
         console.log(items);
         var todoList = $("#todo-list");
-        var deleteBtn = $('<button class="item-delete-btn" type="button">done</button>');
-        var todoItem = $('<li class="todo-item">' + items + deleteBtn +'</li>');
+        // var deleteBtn = $('<button class="item-delete-btn" type="button">done</button>');
+        var todoItem = $('<li class="todo-item">' + items + '<button class="item-delete-btn" type="button">done</button></li>');
+        var deleteBtn = todoItem.find('.item-delete-btn');
         $(deleteBtn).on('click', function(e){
-          console.log(e)
-          // var deleteItem = {
-          //   type: 'DELETE',
-          //   url: 'http://tiny-za-server.herokuapp.com/collections/joebum',
-          // }
-
-        });
+          console.log(e);
+        })
         todoList.append(todoItem);
     })
 });
