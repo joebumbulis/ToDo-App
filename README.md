@@ -1,6 +1,13 @@
 # Day 17: ToDo List
 * Create a simple to do List
 
+
+## Learning Objectives:
+* using ajax to interface with a server
+* [My Tiny Za Server](http://tiny-za-server.herokuapp.com/collections/joebum)
+* GET, POST, DELETE to the server
+* Display data on the DOM
+
 ## Explorer Mode
 
 * Create a simple ToDo list application using HTML, Sass, JavaScript and the jQuery library.
