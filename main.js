@@ -9,12 +9,7 @@ var settings = {
 };
 
 $.ajax(settings).then(function(data, status, xhr) {
-    // console.log(data)
-    // var items = data[0].todo;
-    // console.log(items);
     data.forEach(function(item, i, arr) {
-        // console.log(item);
-        // var id = item._id
         var url = 'http://tiny-za-server.herokuapp.com/collections/joebum/' + item._id
         var todoList = $("#todo-list");
         var todoItem = $('<li class="todo-item">' + item.todo + '<button class="item-delete-btn" type="button">done</button></li>');
@@ -51,12 +46,12 @@ $('.todo-input-btn').on('click', function(e) {
     $.ajax(settings).then(function(data, status, xhr) {
         console.log(data)
         var item = data.todo;
-        var url = 'http://tiny-za-server.herokuapp.com/collections/joebum/' + item._id
+        var url = 'http://tiny-za-server.herokuapp.com/collections/joebum/' + data._id
         var todoList = $("#todo-list");
         // var deleteBtn = $('<button class="item-delete-btn" type="button">done</button>');
         var todoItem = $('<li class="todo-item">' + item + '<button class="item-delete-btn" type="button">done</button></li>');
         var deleteBtn = todoItem.find('.item-delete-btn');
-        $(deleteBtn).on('click', function(e) {
+        deleteBtn.on('click', function(e) {
             var deleteItem = {
                 type: 'DELETE',
                 url: url
